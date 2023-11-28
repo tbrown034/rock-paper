@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://kit.fontawesome.com/97ca5b5e4b.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="center-text">Rock Paper Scissors</h1>
+    <h4 class="center-text">A Vanilla JS game developed by Trevor Brown.</h4>
+    <div id="button-group">
+      <button id="rock-button">
+        <i class="fa-solid fa-hand-back-fist"></i>
+        <span>Rock</span>
+      </button>
+      <button id="paper-button">
+        <i class="fa-solid fa-scroll"></i>
+        <span>Paper</span>
+      </button>
+      <button id="scissors-button">
+        <i class="fa-solid fa-scissors"></i>
+        <span>Scissors</span>
+      </button>
+    </div>
+    <div id="game-scoreboard">
+      <div class="center-text" id="display-player-choice"></div>
+      <div class="center-text" id="display-computer-choice"></div>
+      <div class="center-text" id="outcome-text"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

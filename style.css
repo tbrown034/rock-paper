@@ -1,0 +1,25 @@
+button {
+  padding: 20px;
+}
+
+span {
+  padding-left: 8px;
+}
+
+#button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+#game-scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: large;
+}
