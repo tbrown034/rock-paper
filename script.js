@@ -27,7 +27,7 @@ const computerSelect = () => {
 
   displayComputerChoice.appendChild(createIconElement(computerChoice));
   displayComputerChoice.appendChild(
-    document.createTextNode(`[Computer's choice is ${computerChoice} ... ]`)
+    document.createTextNode(`Computer's choice is ${computerChoice} ...`)
   );
 };
 
@@ -49,7 +49,7 @@ const playGame = () => {
 
     displayPlayerChoice.appendChild(createIconElement(playerChoice));
     displayPlayerChoice.appendChild(
-      document.createTextNode(`[Your choice is ${playerChoice} ... ]`)
+      document.createTextNode(`Your choice is ${playerChoice} ...`)
     );
     displayPlayerChoice.style.opacity = 1;
   }, playerChoiceDelay);
@@ -71,7 +71,7 @@ const playGame = () => {
 function createIconElement(choice) {
   const icon = document.createElement("i");
   if (choice === "Rock") {
-    icon.className = "fa-solid fa-hand-back-fist";
+    icon.className = "fa-solid fa-block-brick";
   } else if (choice === "Paper") {
     icon.className = "fa-solid fa-scroll";
   } else if (choice === "Scissors") {
