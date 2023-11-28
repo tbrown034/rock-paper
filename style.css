@@ -1,5 +1,28 @@
+body {
+  background-color: rgb(25, 42, 86); /* Deep Navy Blue */
+  color: rgb(230, 230, 250); /* Light Lavender */
+  font-size: larger;
+}
+
 button {
-  padding: 20px;
+  background-color: rgb(55, 124, 172); /* Soft muted blue */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  padding: 20px; /* Adequate padding for button size */
+  margin: 10px; /* Space around buttons */
+  border-radius: 5px; /* Slightly rounded corners for a modern look */
+  font-size: 1em; /* Appropriate text size */
+  cursor: pointer; /* Cursor changes to pointer to indicate button */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+button:hover {
+  background-color: rgb(114, 145, 167); /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button:active {
+  transform: scale(0.95); /* Slightly shrink button when clicked */
 }
 
 span {
@@ -12,14 +35,35 @@ span {
   justify-content: center;
 }
 
-.center-text {
-  text-align: center;
+#game-scoreboard {
+  display: none; /* Hide initially */
+  min-height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 10px;
+  margin: 20px;
+  font-size: large;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(
+    55,
+    124,
+    172,
+    0.8
+  ); /* Translucent version of button color */
 }
 
-#game-scoreboard {
+.text-icon {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
   gap: 10px;
-  margin-top: 10px;
-  font-size: large;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
 }

@@ -13,27 +13,63 @@ const outcomeText = document.getElementById("outcome-text");
 let playerChoice = "";
 let computerChoice = "";
 
+// Delay variables in milliseconds
+let playerChoiceDelay = 500;
+let computerChoiceDelay = 3000;
+let winnerResultDelay = 9000;
+
 // Function to randomly select computer's choice
 const computerSelect = () => {
   const choices = ["Rock", "Paper", "Scissors"];
   const randomNumber = Math.floor(Math.random() * 3);
   computerChoice = choices[randomNumber];
-  displayComputerChoice.textContent = `Computer's choice is ${computerChoice}`;
+  displayComputerChoice.innerHTML = ""; // Clear existing content
+
   displayComputerChoice.appendChild(createIconElement(computerChoice));
+  displayComputerChoice.appendChild(
+    document.createTextNode(`[Computer's choice is ${computerChoice} ... ]`)
+  );
 };
 
 // Main game function
 const playGame = () => {
-  displayPlayerChoice.textContent = `Your choice is ${playerChoice}`;
-  displayPlayerChoice.appendChild(createIconElement(playerChoice));
-  computerSelect();
-  checkWin();
+  // Make the scoreboard visible
+  document.getElementById("game-scoreboard").style.display = "flex";
+
+  // Clear existing content and hide divs initially
+  const textIconDivs = document.querySelectorAll(".text-icon");
+  textIconDivs.forEach((div) => {
+    div.innerHTML = "";
+    div.style.opacity = 0;
+  });
+
+  // Show player's choice after a delay
+  setTimeout(() => {
+    displayPlayerChoice.innerHTML = ""; // Clear existing content
+
+    displayPlayerChoice.appendChild(createIconElement(playerChoice));
+    displayPlayerChoice.appendChild(
+      document.createTextNode(`[Your choice is ${playerChoice} ... ]`)
+    );
+    displayPlayerChoice.style.opacity = 1;
+  }, playerChoiceDelay);
+
+  // Show computer's choice after a longer delay
+  setTimeout(() => {
+    computerSelect();
+    displayComputerChoice.style.opacity = 1;
+  }, computerChoiceDelay);
+
+  // Show the outcome after an even longer delay
+  setTimeout(() => {
+    checkWin();
+    outcomeText.style.opacity = 1;
+  }, winnerResultDelay);
 };
 
 // Function to create and return icon elements
 function createIconElement(choice) {
   const icon = document.createElement("i");
-
   if (choice === "Rock") {
     icon.className = "fa-solid fa-hand-back-fist";
   } else if (choice === "Paper") {
@@ -47,29 +83,25 @@ function createIconElement(choice) {
   } else if (choice === "Tie") {
     icon.className = "fa-solid fa-handshake";
   }
-
   return icon;
 }
 
 // Function to check the game's outcome
 const checkWin = () => {
   outcomeText.innerHTML = ""; // Clear existing content
-
   if (computerChoice === playerChoice) {
-    outcomeText.appendChild(document.createTextNode("It's a tie! "));
     outcomeText.appendChild(createIconElement("Tie"));
+    outcomeText.appendChild(document.createTextNode(" It's a tie!"));
   } else if (
     (computerChoice === "Rock" && playerChoice === "Scissors") ||
     (computerChoice === "Paper" && playerChoice === "Rock") ||
     (computerChoice === "Scissors" && playerChoice === "Paper")
   ) {
-    outcomeText.appendChild(
-      document.createTextNode("You lose!!! Computer Wins ")
-    );
     outcomeText.appendChild(createIconElement("Loser"));
+    outcomeText.appendChild(document.createTextNode(" You lose!"));
   } else {
-    outcomeText.appendChild(document.createTextNode("You win!!! "));
     outcomeText.appendChild(createIconElement("Winner"));
+    outcomeText.appendChild(document.createTextNode(" You win!!!!!!!!!!!!!"));
   }
 };
 
